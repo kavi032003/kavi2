@@ -1,0 +1,37 @@
+import random
+
+def guessing_game():
+    # Generate a random number between 1 and 100
+    number_to_guess = random.randint(1, 100)
+
+    # Initialize the number of tries
+    tries = 0
+
+    print("Welcome to the guessing game!")
+    print("I'm thinking of a number between 1 and 100.")
+
+    while True:
+        # Ask the user for their guess
+        user_guess = input("Take a guess: ")
+
+        # Try to convert the user's guess to an integer
+        try:
+            user_guess = int(user_guess)
+        except ValueError:
+            print("That's not a valid number!")
+            continue
+
+        # Increment the number of tries
+        tries += 1
+
+        # Check if the user's guess is correct
+        if user_guess == number_to_guess:
+            print(f"Congratulations! You found the number in {tries} tries.")
+            break
+        elif user_guess < number_to_guess:
+            print("Too low! Try again.")
+        else:
+            print("Too high! Try again.")
+
+if _name_ == "_main_":
+    guessing_game()
